@@ -12,6 +12,12 @@ function App() {
       email: '',
       id: 1
     });
+  const [isEditing, setEditing] = React.useState(
+    { nameEdit: true,
+      phoneEdit: true,
+      emailEdit: true,
+    });
+  
   //const [taskArr, setArr] = React.useState([]);
 
 //  const handleChange = (e) => {
@@ -47,8 +53,11 @@ function App() {
         type="submit"
         >Add Task</button>
       </form> */}
-     <Header info={headerInfo}
-     onChangeItem = {setheader} />
+     <Header 
+     info={headerInfo}
+     onChangeItem = {setheader}
+     isEditing = {isEditing}
+     setEditing = {setEditing} />
   </div>
    );
   }
