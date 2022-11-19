@@ -1,15 +1,5 @@
 import React from "react";
 
-
-   // const { tasks } = props;
-
-    // function handleDelete (itemNum) {
-    // console.log(props)
-    // const newTasks = tasks.filter((task) => task.id !== itemNum);
-    // console.log(newTasks);
-    // props.onDeleteTask(newTasks)
-    // }
-
 function Header (props) {
 
   const handleNameChange = (e) => {
@@ -40,23 +30,60 @@ const handlePhoneChange = (e) => {
       email: props.info.email,
     });
 }
-  const onSubmit = (e) => {
+  const onSubmitName = (e) => {
     e.preventDefault();
-    const name = e.target.name
-    console.log(name);
     props.setEditing(
       {
-        emailEdit : false,
-       //[`${name}+Edit`]: false,
+        nameEdit : false,
+        emailEdit : props.isEditing.emailEdit,
+        phoneEdit : props.isEditing.phoneEdit,
       });
   };
 
-  const editField = (e) => {
+  const onSubmitEmail = (e) => {
     e.preventDefault();
-    const name = e.target.name
     props.setEditing(
       {
-        [name]: true,
+        nameEdit : props.isEditing.nameEdit,
+        emailEdit : false,
+        phoneEdit : props.isEditing.phoneEdit,
+      });
+  };
+
+  const onSubmitPhone = (e) => {
+    e.preventDefault();
+    props.setEditing(
+      {
+        nameEdit : props.isEditing.nameEdit,
+        emailEdit : props.isEditing.emailEdit,
+        phoneEdit : false,
+      });
+  };
+  const editName = (e) => {
+    e.preventDefault();
+    props.setEditing(
+      {
+        nameEdit : true,
+        emailEdit : props.isEditing.emailEdit,
+        phoneEdit : props.isEditing.phoneEdit,
+      }); 
+  }
+  const editEmail = (e) => {
+    e.preventDefault();
+    props.setEditing(
+      {
+        nameEdit : props.isEditing.nameEdit,
+        emailEdit : true,
+        phoneEdit : props.isEditing.phoneEdit,
+      }); 
+  }
+  const editPhone = (e) => {
+    e.preventDefault();
+    props.setEditing(
+      {
+        nameEdit : props.isEditing.nameEdit,
+        emailEdit : props.isEditing.emailEdit,
+        phoneEdit : true
       }); 
   }
 
@@ -65,10 +92,11 @@ const handlePhoneChange = (e) => {
         <div>
             <div id="nameField">
               {(props.isEditing.nameEdit) ? (
-                <form id="nameForm" onSubmit={onSubmit}>
+                <form id="nameForm" onSubmit={onSubmitName}>
                     <label htmlFor="nameInput">Enter Name:</label>
                     <input
                         name= 'name'
+                        value= {props.info.name === `` ? '' : props.info.name}
                         onChange={handleNameChange}
                         type="text"
                         placeholder='Name...'
@@ -81,21 +109,22 @@ const handlePhoneChange = (e) => {
                 <div id="nameText"> {props.info.name}
                   <button 
                   id="editButton"
-                  onClick={editField}>Edit</button>
+                  onClick={editName}>Edit</button>
                 </div>
               )}
             </div>
           
             <div id="emailField">
               {props.isEditing.emailEdit ? (
-                <form id="emailForm" onSubmit={onSubmit}>
+                <form id="emailForm" onSubmit={onSubmitEmail}>
                     <label htmlFor="emailInput">Enter Email:</label>
                     <input
                         onChange={handleEmailChange}
-                    
+                        value= {props.info.email === `` ? '' : props.info.email}
                         type="text"
                         name='email'
-                        placeholder='Email...'
+                        placeholder= 'Email...'
+                        
                     />
                     <button
                     type="submit">Confirm
@@ -105,18 +134,18 @@ const handlePhoneChange = (e) => {
                 <div id="email"> {props.info.email}
                   <button 
                   id="editButton"
-                  onClick={editField}>Edit</button>
+                  onClick={editEmail}>Edit</button>
                 </div>
               )}
 
             </div>
             <div id="phoneField">
             {props.isEditing.phoneEdit ? (
-                <form id="phoneForm" onSubmit={onSubmit}>
+                <form id="phoneForm" onSubmit={onSubmitPhone}>
                     <label htmlFor="phoneInput">Enter Phone:</label>
                     <input
                         onChange={handlePhoneChange}
-                    
+                        value= {props.info.phone === `` ? '' : props.info.phone}
                         type="text"
                         name='phone'
                         placeholder='Phone Number...'
@@ -129,18 +158,10 @@ const handlePhoneChange = (e) => {
                 <div id="phone"> {props.info.phone}
                   <button 
                   id="editButton"
-                  onClick={editField}>Edit</button>
+                  onClick={editPhone}>Edit</button>
                 </div>
               )}
             </div>
-
-            {/* {tasks.map((task) => {
-                 return <div key={task.id}>
-                <p>{task.id}: {task.text} </p>
-                <button onClick={() => handleDelete(task.id)}>Delete Task</button>
-                </div>
-            })
-            } */}
         </div> 
       );
   };

@@ -1,6 +1,7 @@
 //import logo from './logo.svg';
 import './App.css';
 import Header from "./components/header";
+import Education from "./components/education";
 import React from 'react';
 
 function App() {
@@ -18,6 +19,16 @@ function App() {
       emailEdit: true,
     });
   
+  const [eduInfo, seteduInfo] = React.useState(
+    {
+      degree: '',
+      major: '',
+      date: '',
+      awards: '',
+  });
+
+  const [edEditing, seteduEditing] = React.useState(true)
+  const [eduArr, seteduArr] = React.useState([])
   //const [taskArr, setArr] = React.useState([]);
 
 //  const handleChange = (e) => {
@@ -54,10 +65,21 @@ function App() {
         >Add Task</button>
       </form> */}
      <Header 
-     info={headerInfo}
+     info = {headerInfo}
      onChangeItem = {setheader}
      isEditing = {isEditing}
      setEditing = {setEditing} />
+
+     <div className='educationContainer'>
+        <Education
+        info = {eduInfo}
+        seteduInfo= {seteduInfo}
+        eduArr = {eduArr}
+        seteduArr = {seteduArr}
+        edEditing = {edEditing}
+        seteduEditing = {seteduEditing}
+        />
+     </div>
   </div>
    );
   }
