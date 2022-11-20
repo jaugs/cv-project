@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./components/header";
 import Education from "./components/education";
 import React from 'react';
+import WorkHistory from './components/workHistory';
 
 function App() {
 
@@ -29,41 +30,33 @@ function App() {
 
   const [edEditing, seteduEditing] = React.useState(true)
   const [eduArr, seteduArr] = React.useState([])
-  //const [taskArr, setArr] = React.useState([]);
+  
+  const [workInfo, setWorkInfo] = React.useState(
+    {
+      company: '',
+      title: '',
+      location: '',
+      date: '',
+      tasks: [],
+  });
 
-//  const handleChange = (e) => {
-//     setTask(
-//       {
-//         text: e.target.value,
-//        id: task.id
-//       })
-//       }
+  const [workEditing, setWorkEditing] = React.useState(true)
+  const [workArr, setWorkArr] = React.useState([])
 
-//  const onSubmitTask = (e) => {
-//     e.preventDefault();
-//     console.log(taskArr)
-//     setArr(taskArr.concat(task))
-//     setTask({
-//       text: '',
-//       id: task.id + 1
-//     })
-//   };
+  const addEducation = () => {
+    <Education 
+      info = {eduInfo}
+      seteduInfo= {seteduInfo}
+      eduArr = {eduArr}
+      seteduArr = {seteduArr}
+      edEditing = {edEditing}
+      seteduEditing = {seteduEditing}>
+    </Education>
+  }
 
   return (
     <div>
-      {/* <form onSubmit={onSubmitTask}>
-      <label htmlFor="taskInput">Enter Task:</label>
-        <input
-        onChange={handleChange}
-        value={task.text}
-        type="text"
-        id='taskInput'
-        placeholder='Your Task...'
-        />
-      <button
-        type="submit"
-        >Add Task</button>
-      </form> */}
+    
      <Header 
      info = {headerInfo}
      onChangeItem = {setheader}
@@ -78,6 +71,20 @@ function App() {
         seteduArr = {seteduArr}
         edEditing = {edEditing}
         seteduEditing = {seteduEditing}
+        />
+        <button 
+          className='addEdu'
+          onClick={addEducation}>Add Education
+        </button>
+      </div>
+     <div className='workContainer'>
+        <WorkHistory
+        info = {workInfo}
+        setWorkInfo= {setWorkInfo}
+        workArr = {workArr}
+        seteduArr = {setWorkArr}
+        workEditing = {workEditing}
+        setWorkEditing = {setWorkEditing}
         />
      </div>
   </div>
