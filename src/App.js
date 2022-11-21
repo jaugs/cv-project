@@ -44,14 +44,15 @@ function App() {
   const [workArr, setWorkArr] = React.useState([])
 
   const addEducation = () => {
-    <Education 
-      info = {eduInfo}
-      seteduInfo= {seteduInfo}
-      eduArr = {eduArr}
-      seteduArr = {seteduArr}
-      edEditing = {edEditing}
-      seteduEditing = {seteduEditing}>
-    </Education>
+    
+    // <Education 
+    //   info = {eduInfo}
+    //   seteduInfo= {seteduInfo}
+    //   eduArr = {eduArr}
+    //   seteduArr = {seteduArr}
+    //   edEditing = {edEditing}
+    //   seteduEditing = {seteduEditing}>
+    // </Education>
   }
 
   return (

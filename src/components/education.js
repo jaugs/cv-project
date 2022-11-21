@@ -13,8 +13,18 @@ function Education (props) {
           });
     }
 
+    // const ListItems = () => {
+    //  let items = Object.entries(props.eduArr).map((key, item) => 
+    //    {
+    //      return  key={item} value={key[0]}>{key[1]}
+    //    })
+    //   return items}
+      
+    
+
     const onSubmitEdu = (e) => {
         e.preventDefault();
+        props.eduArr.push(props.info)
         props.seteduEditing(
           false);
       };
@@ -64,6 +74,19 @@ function Education (props) {
           </form>
               ) : (
           <div id="educationText"> 
+
+           <div>
+             {Object.values(props.eduArr[0]).map((value, index) => {
+              return (
+                <div key={index}>
+                  <h2>
+                    {value}
+                  </h2>
+                  <hr />
+                  </div>
+              )
+             })}
+           </div>
             <p>{props.info.degree}</p>
             <p>{props.info.major}</p>
             <p>{props.info.date}</p>
