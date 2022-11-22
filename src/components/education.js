@@ -27,13 +27,39 @@ function Education (props) {
         props.eduArr.push(props.info)
         props.seteduEditing(
           false);
+        props.seteduInfo(
+            {
+              degree: '',
+              major: '',
+              date: '',
+              awards: '',
+              id: props.info.id + 1
+            }
+          )
       };
 
     const editEdu = (e) => {
       e.preventDefault();
+      console.log(e.target.id)
+      props.seteduInfo(
+        {
+          degree: props.eduArr[e.target.id].degree,
+          major: props.eduArr[e.target.id].major,
+          date: props.eduArr[e.target.id].date,
+          awards: props.eduArr[e.target.id].awards,
+          id: e.target.id
+        })
       props.seteduEditing(
         true);
+    
     };
+
+    const addEducation = (e) => {
+      e.preventDefault();
+     
+      props.seteduEditing(
+        true);
+    }
 
     return (
       <div className="educationField">
@@ -73,29 +99,39 @@ function Education (props) {
             </button>
           </form>
               ) : (
-          <div id="educationText"> 
-
-           <div>
-             {Object.values(props.eduArr[0]).map((value, index) => {
+                <div>
+           <div className="eduArrText">
+            {/* {Object.values(props.eduArr[0]).map((value, index) => {
               return (
-                <div key={index}>
-                  <h2>
-                    {value}
-                  </h2>
+                <div key={index} className= "eduArrField">
+                    {value} +++ {index}
                   <hr />
                   </div>
               )
-             })}
-           </div>
-            <p>{props.info.degree}</p>
-            <p>{props.info.major}</p>
-            <p>{props.info.date}</p>
-            <p>{props.info.awards}</p>
-            <button 
-              id="editEduButton"
+             })}  */}
+            {props.eduArr.map(item => (
+              <div className="educationInfo" key ={item.id}>
+                <p> {item.degree}</p>
+                <p> {item.major}</p>
+                <p> {item.date}</p>
+                <p> {item.awards}</p>
+                <hr />
+                <button 
+              id= {item.id}
               onClick={editEdu}
               >Edit</button>
-          </div>
+              </div>
+            ))}
+         
+            
+             
+           </div>
+          
+           <button 
+          className='addEdu'
+          onClick={addEducation}>Add Education
+        </button>
+        </div>
         )}
     </div>
     )}

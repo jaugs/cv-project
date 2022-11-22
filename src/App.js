@@ -26,6 +26,7 @@ function App() {
       major: '',
       date: '',
       awards: '',
+      id: 0
   });
 
   const [edEditing, seteduEditing] = React.useState(true)
@@ -43,17 +44,7 @@ function App() {
   const [workEditing, setWorkEditing] = React.useState(true)
   const [workArr, setWorkArr] = React.useState([])
 
-  const addEducation = () => {
-    
-    // <Education 
-    //   info = {eduInfo}
-    //   seteduInfo= {seteduInfo}
-    //   eduArr = {eduArr}
-    //   seteduArr = {seteduArr}
-    //   edEditing = {edEditing}
-    //   seteduEditing = {seteduEditing}>
-    // </Education>
-  }
+ 
 
   return (
     <div>
@@ -73,10 +64,7 @@ function App() {
         edEditing = {edEditing}
         seteduEditing = {seteduEditing}
         />
-        <button 
-          className='addEdu'
-          onClick={addEducation}>Add Education
-        </button>
+       
       </div>
      <div className='workContainer'>
         <WorkHistory
