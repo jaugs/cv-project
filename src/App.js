@@ -26,7 +26,7 @@ function App() {
       major: '',
       date: '',
       awards: '',
-      id: 0
+      id: 0,
   });
 
   const [edEditing, seteduEditing] = React.useState(true)
@@ -64,6 +64,18 @@ function App() {
         edEditing = {edEditing}
         seteduEditing = {seteduEditing}
         />
+        {/* <button
+        id = "addMore"
+        onClick={
+          <Education
+          info = {eduInfo}
+        seteduInfo= {seteduInfo}
+        eduArr = {eduArr}
+        seteduArr = {seteduArr}
+        edEditing = {edEditing}
+        seteduEditing = {seteduEditing}
+        />
+        }>Add More Eduacation</button> */}
        
       </div>
      <div className='workContainer'>

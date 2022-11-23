@@ -33,30 +33,30 @@ function Education (props) {
               major: '',
               date: '',
               awards: '',
-              id: props.info.id + 1
+              id: (props.info.id + 1)
             }
           )
       };
 
+   
     const editEdu = (e) => {
-      e.preventDefault();
-      console.log(e.target.id)
-      props.seteduInfo(
-        {
-          degree: props.eduArr[e.target.id].degree,
-          major: props.eduArr[e.target.id].major,
-          date: props.eduArr[e.target.id].date,
-          awards: props.eduArr[e.target.id].awards,
-          id: e.target.id
-        })
+      const newArr = props.eduArr.filter(elem => elem.id !== parseInt(e.target.id))
+      props.seteduArr(newArr)
+      // props.seteduInfo(
+      //     {
+      //       degree: props.eduArr[item.degree],
+      //       major: props.eduArr[item.major],
+      //       date: props.eduArr[item.date],
+      //       awards: props.eduArr[item.awards],
+      //       id: parseInt(item.id+1)
+      //     })
+    
       props.seteduEditing(
         true);
-    
     };
-
+    
     const addEducation = (e) => {
       e.preventDefault();
-     
       props.seteduEditing(
         true);
     }
@@ -101,14 +101,7 @@ function Education (props) {
               ) : (
                 <div>
            <div className="eduArrText">
-            {/* {Object.values(props.eduArr[0]).map((value, index) => {
-              return (
-                <div key={index} className= "eduArrField">
-                    {value} +++ {index}
-                  <hr />
-                  </div>
-              )
-             })}  */}
+        
             {props.eduArr.map(item => (
               <div className="educationInfo" key ={item.id}>
                 <p> {item.degree}</p>
@@ -121,7 +114,8 @@ function Education (props) {
               onClick={editEdu}
               >Edit</button>
               </div>
-            ))}
+            )
+            )}
          
             
              
