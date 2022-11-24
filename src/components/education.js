@@ -1,5 +1,5 @@
 import React from "react";
-
+import '../styles/educationStyle.css';
 
 
 function Education (props) {

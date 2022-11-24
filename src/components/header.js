@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/headerStyle.css';
 
 function Header (props) {
 
@@ -89,11 +90,11 @@ const handlePhoneChange = (e) => {
 
 
       return (
-        <div>
+        <div className="headerField">
             <div id="nameField">
               {(props.isEditing.nameEdit) ? (
                 <form id="nameForm" onSubmit={onSubmitName}>
-                    <label htmlFor="nameInput">Enter Name:</label>
+                    <label className="headerLabel" htmlFor="nameInput">Enter Name:</label>
                     <input
                         name= 'name'
                         value= {props.info.name === `` ? '' : props.info.name}
@@ -102,6 +103,7 @@ const handlePhoneChange = (e) => {
                         placeholder='Name...'
                     />
                     <button
+                    className="confirm"
                     type="submit">Confirm
                     </button>
                 </form>
@@ -117,7 +119,7 @@ const handlePhoneChange = (e) => {
             <div id="emailField">
               {props.isEditing.emailEdit ? (
                 <form id="emailForm" onSubmit={onSubmitEmail}>
-                    <label htmlFor="emailInput">Enter Email:</label>
+                    <label className="headerLabel" htmlFor="emailInput">Enter Email:</label>
                     <input
                         onChange={handleEmailChange}
                         value= {props.info.email === `` ? '' : props.info.email}
@@ -127,6 +129,7 @@ const handlePhoneChange = (e) => {
                         
                     />
                     <button
+                    className="confirm"
                     type="submit">Confirm
                     </button>
                 </form>
@@ -142,7 +145,7 @@ const handlePhoneChange = (e) => {
             <div id="phoneField">
             {props.isEditing.phoneEdit ? (
                 <form id="phoneForm" onSubmit={onSubmitPhone}>
-                    <label htmlFor="phoneInput">Enter Phone:</label>
+                    <label className="headerLabel" htmlFor="phoneInput">Enter Phone:</label>
                     <input
                         onChange={handlePhoneChange}
                         value= {props.info.phone === `` ? '' : props.info.phone}
@@ -151,6 +154,7 @@ const handlePhoneChange = (e) => {
                         placeholder='Phone Number...'
                     />
                     <button
+                    className="confirm"
                     type="submit">Confirm
                     </button>
                 </form>
@@ -162,6 +166,7 @@ const handlePhoneChange = (e) => {
                 </div>
               )}
             </div>
+         
         </div> 
       );
   };

@@ -47,8 +47,9 @@ function App() {
  
 
   return (
-    <div>
-    
+    <div className='container'>
+    <h2>Create your CV Application</h2>
+    <div className='CVcontainer'>
      <Header 
      info = {headerInfo}
      onChangeItem = {setheader}
@@ -87,6 +88,7 @@ function App() {
         workEditing = {workEditing}
         setWorkEditing = {setWorkEditing}
         />
+     </div>
      </div>
   </div>
    );
