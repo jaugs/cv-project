@@ -34,11 +34,13 @@ function App() {
   
   const [workInfo, setWorkInfo] = React.useState(
     {
+      duties: '',
       company: '',
       title: '',
       location: '',
       date: '',
       tasks: [],
+      id: 0,
   });
 
   const [workEditing, setWorkEditing] = React.useState(true)

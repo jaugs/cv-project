@@ -20,7 +20,7 @@
     display: inline-block;
 }
 
-input[type=text] {
+.headerInput {
     box-sizing: border-box;
     border-radius: 13px;
     padding: 5px;
@@ -49,4 +49,16 @@ input[type=text]:focus {
     padding: 5px;
     background-color: #64748b;
     color:#f8fafc;
+    border: none;
+    box-shadow: 2px 2px 5px black;
+}
+
+.confirm:hover {
+    background-color: #1e293b;
+}
+
+.confirm:active {
+    background-color: #94a3b8;
+    transform: translate(0%, 10%);
+    
 }

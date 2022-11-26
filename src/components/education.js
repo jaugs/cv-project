@@ -65,8 +65,17 @@ function Education (props) {
       <div className="educationField">
         {(props.edEditing) ? (
         <form className="eduForm" onSubmit={onSubmitEdu}>
-          <label htmlFor="eduInput">Enter Education:</label>
+          <label className="eduLabel" htmlFor="eduInput">Enter Education:</label>
             <input
+              className="eduInput"
+              name= 'date'
+              value= {props.info.date === `` ? '' : props.info.date}
+              onChange={handleInfoChange} 
+              type="text"
+              placeholder='Dates attended...'
+            />
+            <input
+              className="eduInput"
               name= 'degree'
               value= {props.info.degree === `` ? '' : props.info.degree}
               onChange={handleInfoChange}
@@ -75,26 +84,23 @@ function Education (props) {
             />
             <input
               name= 'major'
-                value= {props.info.major === `` ? '' : props.info.major}
-                onChange={handleInfoChange}
-                type="text"
-                placeholder='Major...'
-            />
-            <input
-              name= 'date'
-              value= {props.info.date === `` ? '' : props.info.date}
-              onChange={handleInfoChange} 
+              className="eduInput"
+              value= {props.info.major === `` ? '' : props.info.major}
+              onChange={handleInfoChange}
               type="text"
-              placeholder='Dates attended...'
+              placeholder='Major...'
             />
-            <input
+            <textarea
+            className="eduAward"
             name= 'awards'
             value= {props.info.awards === `` ? '' : props.info.awards}
             onChange={handleInfoChange}
-            type="text"
+            rows="7"
+            cols="30"
             placeholder='Awards/Coursework/Projects...'
             />
            <button
+              className="educonfirm"
               type="submit">Confirm
             </button>
           </form>

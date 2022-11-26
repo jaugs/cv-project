@@ -96,6 +96,7 @@ const handlePhoneChange = (e) => {
                 <form id="nameForm" onSubmit={onSubmitName}>
                     <label className="headerLabel" htmlFor="nameInput">Enter Name:</label>
                     <input
+                        className="headerInput"
                         name= 'name'
                         value= {props.info.name === `` ? '' : props.info.name}
                         onChange={handleNameChange}
@@ -121,6 +122,7 @@ const handlePhoneChange = (e) => {
                 <form id="emailForm" onSubmit={onSubmitEmail}>
                     <label className="headerLabel" htmlFor="emailInput">Enter Email:</label>
                     <input
+                        className="headerInput"
                         onChange={handleEmailChange}
                         value= {props.info.email === `` ? '' : props.info.email}
                         type="text"
@@ -147,6 +149,7 @@ const handlePhoneChange = (e) => {
                 <form id="phoneForm" onSubmit={onSubmitPhone}>
                     <label className="headerLabel" htmlFor="phoneInput">Enter Phone:</label>
                     <input
+                        className="headerInput"
                         onChange={handlePhoneChange}
                         value= {props.info.phone === `` ? '' : props.info.phone}
                         type="text"

@@ -1,4 +1,5 @@
 import React from "react";
+import '../styles/workStyle.css';
 
 function WorkHistory (props) {
 
@@ -28,8 +29,17 @@ function WorkHistory (props) {
             <div className="workField">
               {(props.workEditing) ? (
                 <form className="workForm" onSubmit={onSubmitWork}>
-                    <label htmlFor="workInput">Enter Work History:</label>
+                    <label className="workLabel" htmlFor="workInput">Enter Work History:</label>
                     <input
+                        className="workInput"
+                        name= 'date'
+                        value= {props.info.date === `` ? '' : props.info.date}
+                        onChange={handleInfoChange}
+                        type="text"
+                        placeholder='Dates worked...'
+                    />
+                    <input
+                        className="workInput"
                         name= 'company'
                         value= {props.info.company === `` ? '' : props.info.company}
                         onChange={handleInfoChange}
@@ -37,6 +47,7 @@ function WorkHistory (props) {
                         placeholder='Company Name...'
                     />
                     <input
+                        className="workInput"
                         name= 'title'
                         value= {props.info.title === `` ? '' : props.info.title}
                         onChange={handleInfoChange}
@@ -44,20 +55,25 @@ function WorkHistory (props) {
                         placeholder='Job Title...'
                     />
                     <input
+                        className="workInput"
                         name= 'location'
                         value= {props.info.location === `` ? '' : props.info.location}
                         onChange={handleInfoChange}
                         type="text"
                         placeholder='Location...'
                     />
-                    <input
-                        name= 'date'
-                        value= {props.info.date === `` ? '' : props.info.date}
+                     <textarea
+                        className="jobDuties"
+                        name= 'duties'
+                        value= {props.info.duties === `` ? '' : props.info.duties}
                         onChange={handleInfoChange}
                         type="text"
-                        placeholder='Dates worked...'
+                        placeholder='Job Duties/Responsibilities...'
+                        rows="7"
+                        cols="30"
                     />
                     <button
+                    className="workconfirm"
                     type="submit">Confirm
                     </button>
                 </form>
