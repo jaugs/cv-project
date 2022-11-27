@@ -22,6 +22,7 @@ function App() {
   
   const [eduInfo, seteduInfo] = React.useState(
     {
+      school: '',
       degree: '',
       major: '',
       date: '',
@@ -39,7 +40,6 @@ function App() {
       title: '',
       location: '',
       date: '',
-      tasks: [],
       id: 0,
   });
 
@@ -67,26 +67,13 @@ function App() {
         edEditing = {edEditing}
         seteduEditing = {seteduEditing}
         />
-        {/* <button
-        id = "addMore"
-        onClick={
-          <Education
-          info = {eduInfo}
-        seteduInfo= {seteduInfo}
-        eduArr = {eduArr}
-        seteduArr = {seteduArr}
-        edEditing = {edEditing}
-        seteduEditing = {seteduEditing}
-        />
-        }>Add More Eduacation</button> */}
-       
       </div>
      <div className='workContainer'>
         <WorkHistory
         info = {workInfo}
         setWorkInfo= {setWorkInfo}
         workArr = {workArr}
-        seteduArr = {setWorkArr}
+        setWorkArr = {setWorkArr}
         workEditing = {workEditing}
         setWorkEditing = {setWorkEditing}
         />

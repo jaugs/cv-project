@@ -1,5 +1,10 @@
-.educationField {
+.WorkTextField {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 5px;
 }
 
 .workconfirm {
@@ -67,4 +72,23 @@
     grid-column: 1/-1;
     justify-self: center;
     resize: none;
+}
+
+.workInfo {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 2fr 3fr 1fr;
+}
+
+.dutiesText {
+    grid-column: 1/-1;
+}
+
+.jobItem {
+    justify-self: center;
+    align-self: center;
+    text-align: center;
 }
